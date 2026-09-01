@@ -411,8 +411,8 @@
       <div data-write="0.4" style="margin-top: 26px; font-family: 'Pinyon Script', cursive; font-size: clamp(40px, 9vw, 58px); color: #3A2E1E; line-height: 1.25; padding: 0 8px;">{{ coupleNames }}</div>
     </sc-if>
     <sc-if value="{{ showHeroCeremonyLine }}" hint-placeholder-val="{{ false }}">
-      <div data-reveal="0.82" style="margin-top: 24px; font-size: clamp(18px, 5vw, 24px); font-weight: 500; letter-spacing: 0.16em; text-indent: 0.16em; line-height: 1.6; color: #8A6B4C; max-width: min(88vw, 620px);">
-        {{ heroCeremonyBeforeDate }}<strong style="display: inline-block; white-space: nowrap; font-size: clamp(13px, 3.7vw, 18px); font-weight: 700; letter-spacing: 0.02em; text-indent: 0; color: #3A2E1E;">{{ heroCeremonyDate }}</strong>{{ heroCeremonyAfterDate }}
+      <div data-reveal="0.82" style="margin-top: 24px; font-size: {{ heroTaglineFontSize }}; font-weight: 500; letter-spacing: {{ heroTaglineLetterSpacing }}; text-indent: {{ heroTaglineLetterSpacing }}; line-height: {{ heroTaglineLineHeight }}; color: #8A6B4C; max-width: min(88vw, 620px);">
+        {{ heroCeremonyBeforeDate }}<strong style="display: inline-block; white-space: nowrap; font-size: clamp(13px, 3.7vw, 18px); font-weight: 700; letter-spacing: 0.02em; text-indent: 0; color: #8A6B4C;">{{ heroCeremonyDate }}</strong>{{ heroCeremonyAfterDate }}
       </div>
     </sc-if>
     <div style="position: absolute; bottom: 22px; left: 50%; animation: bobDown 2s ease-in-out infinite;">
@@ -490,7 +490,7 @@
   <section data-screen-label="Footer" style="padding: 36px 24px 64px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0;">
     {{ footerButterfly }}
     <div data-reveal="0.1" style="margin-top: 36px; font-family: 'Pinyon Script', cursive; font-size: {{ withLoveFontSize }}; color: #8A6B4C; line-height: 1.2;">{{ withLoveText }}</div>
-    <div data-reveal="0.2" style="margin-top: 26px; font-size: {{ footerNamesFontSize }}; letter-spacing: {{ footerNamesLetterSpacing }}; text-indent: {{ footerNamesLetterSpacing }}; color: #3A2E1E; white-space: nowrap;">{{ footerNames }}</div>
+    <div data-reveal="0.2" style="margin-top: 26px; font-size: {{ footerNamesFontSize }}; letter-spacing: {{ footerNamesLetterSpacing }}; text-indent: {{ footerNamesLetterSpacing }}; color: #3A2E1E; font-weight: 600; white-space: nowrap;">{{ footerNames }}</div>
     <sc-if value="{{ showFooterNote }}" hint-placeholder-val="{{ false }}">
       <div data-reveal="0.3" style="margin-top: 18px; max-width: 560px; font-size: clamp(17px, 4.2vw, 20px); line-height: 1.55; font-style: italic; letter-spacing: {{ footerNoteLetterSpacing }}; text-indent: {{ footerNoteLetterSpacing }}; color: #8A6B4C;">{{ footerNote }}</div>
     </sc-if>
@@ -585,8 +585,8 @@ class Component extends DCLogic {
       withLoveText: 'አክባሪ ጠሪዎ',
       withLoveFontSize: 'clamp(18px, 4vw, 24px)',
       footerNames: 'ወ/ሮ መሰረት አያልቅበት',
-      footerNamesFontSize: 'clamp(13px, 3.8vw, 24px)',
-      footerNamesLetterSpacing: '0.05em',
+      footerNamesFontSize: 'clamp(25px, 6.3vw, 38px)',
+      footerNamesLetterSpacing: '0',
       showFooterNote: false,
       footerNote: '',
       footerNoteLetterSpacing: '0.08em'
@@ -657,8 +657,8 @@ class Component extends DCLogic {
       withLoveText: 'with love,',
       withLoveFontSize: '42px',
       footerNames: 'ወ/ሮ መሰረት አያልቅበት',
-      footerNamesFontSize: 'clamp(13px, 3.8vw, 24px)',
-      footerNamesLetterSpacing: '0.05em',
+      footerNamesFontSize: 'clamp(25px, 6.3vw, 38px)',
+      footerNamesLetterSpacing: '0',
       showFooterNote: true,
       footerNote: 'Your presence means the world to us.',
       footerNoteLetterSpacing: '0'
