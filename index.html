@@ -351,6 +351,10 @@
   {{ butterflyLayer }}
   {{ petalLayer }}
 
+  <button onClick="{{ toggleLanguage }}" aria-label="{{ languageToggleAria }}" style="position: fixed; right: 20px; top: 20px; z-index: 61; width: 52px; height: 52px; border-radius: 50%; border: 1px solid #A08464; background: rgba(250, 246, 238, 0.92); color: #8A6B4C; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 18px rgba(90, 70, 50, 0.18); font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 600; letter-spacing: 0.04em;">
+    {{ languageToggleLabel }}
+  </button>
+
   <!-- Music toggle -->
   <sc-if value="{{ hasMusic }}" hint-placeholder-val="{{ false }}">
     <button onClick="{{ toggleMusic }}" aria-label="Toggle music" style="position: fixed; right: 20px; bottom: 20px; z-index: 60; width: 52px; height: 52px; border-radius: 50%; border: 1px solid #A08464; background: rgba(250, 246, 238, 0.92); color: #8A6B4C; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 18px rgba(90, 70, 50, 0.18);">
@@ -530,7 +534,9 @@ class Component extends DCLogic {
   }
 
   copy() {
-    return {
+    return this.state.isAmharic ? {
+      languageToggleLabel: 'EN',
+      languageToggleAria: 'Switch to English',
       heroEyebrow: 'እርስዎ',
       heroTitle: 'በክብር',
       heroInviteWord: 'ተጋብዘዋል',
@@ -575,8 +581,62 @@ class Component extends DCLogic {
       footerNames: 'ያቢ & ክሪስ',
       footerNote: 'መገኘታችሁ ለእኛ ትልቅ ዋጋ አለው።',
       footerNoteLetterSpacing: '0.08em'
+    } : {
+      languageToggleLabel: 'አማ',
+      languageToggleAria: 'Switch to Amharic',
+      heroEyebrow: 'YOU’RE',
+      heroTitle: 'CORDIALLY',
+      heroInviteWord: 'INVITED',
+      heroTagline: 'to celebrate the beginning of our life together',
+      coupleNames: 'Yeabsra  &  Christian',
+      dateLabel: 'DATE:',
+      dayText: 'SUNDAY',
+      monthText: 'SEPT',
+      yearText: '2026',
+      timeText: 'AT 5:30 PM',
+      addCalendarText: 'ADD TO CALENDAR',
+      venueLabel: 'VENUE:',
+      venueText: 'AT THE FAMILY RESIDENCE, BOLE BULBULA',
+      locationText: 'LOCATION',
+      locationTextFontSize: '13px',
+      openMapText: 'OPEN MAP',
+      guestTitle: 'GUEST',
+      guestTitleFontSize: '34px',
+      memoriesTitle: 'memories',
+      memoriesDescriptionFontSize: 'clamp(17px, 4.2vw, 20px)',
+      memoriesDescriptionLetterSpacing: '0',
+      memoriesDescription: 'Share your favorite moments from the celebration. Photos appear here for everyone, and you can remove the photos you upload from this same device.',
+      sharePhotoText: 'SHARE PHOTO',
+      uploadingText: 'UPLOADING',
+      emptyGalleryText: 'Your shared photos will appear here.',
+      emptyGalleryLetterSpacing: '0',
+      galleryUnavailableText: 'Guest photos are temporarily unavailable.',
+      uploadFailedText: 'Upload could not finish. Try fewer or smaller photos.',
+      deleteFailedText: 'Could not delete that photo. Please try again.',
+      photoSingular: '1 photo',
+      photoPlural: count => count + ' photos',
+      readPrefix: 'Reading ',
+      preparePrefix: 'Preparing ',
+      uploadPrefix: 'Uploading ',
+      finishUploadText: 'Finishing upload...',
+      limitNoteText: ' Uploading the first 12.',
+      addedText: count => count === 1 ? '1 photo added.' : count + ' photos added.',
+      skippedText: count => count + ' skipped.',
+      photoAlt: 'Guest engagement ceremony memory',
+      photoAltFrom: date => 'Guest engagement ceremony memory from ' + date,
+      withLoveText: 'with love,',
+      footerNames: 'YEABI & CHRIS',
+      footerNote: 'Your presence means the world to us.',
+      footerNoteLetterSpacing: '0'
     };
   }
+
+  toggleLanguage = () => {
+    this.setState(prev => ({ isAmharic: !prev.isAmharic }), () => {
+      document.documentElement.lang = this.state.isAmharic ? 'am' : 'en';
+      this.refreshGuestGalleryLanguage();
+    });
+  };
 
   refreshGuestGalleryLanguage() {
     const root = document.querySelector('.sc-host');
@@ -1233,6 +1293,7 @@ class Component extends DCLogic {
       showOverlay: !this.state.opened,
       openEnvelope: this.openEnvelope,
       openGuestPhotoPicker: this.openGuestPhotoPicker,
+      toggleLanguage: this.toggleLanguage,
       overlayRef: this.overlayRef,
       closedRef: this.closedRef,
       openRef: this.openRef,
