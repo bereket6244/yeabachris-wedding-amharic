@@ -26,7 +26,7 @@
     ::-webkit-scrollbar-track { background: #EFE1C7; }
     ::-webkit-scrollbar-thumb { background: #A08464; border: 3px solid #EFE1C7; border-radius: 999px; }
     a { color: #8A6B4C; }
-    a:hover { color: #6E5439; }
+    a:hover { color: #3A2E1E; }
     @keyframes flap { from { transform: scaleX(1); } to { transform: scaleX(0.22); } }
     @keyframes driftA {
       0% { transform: translate(0, 0) rotate(-6deg); }
@@ -105,7 +105,7 @@
     }
     .guest-photo-upload.is-uploading {
       cursor: wait;
-      color: #6E5439;
+      color: #3A2E1E;
       background: rgba(250, 246, 238, 0.7) !important;
     }
     .guest-photo-upload.is-uploading::before {
@@ -143,7 +143,7 @@
     .guest-upload-status {
       min-height: 24px;
       margin-top: 18px;
-      color: #8B7A66;
+      color: #8A6B4C;
       font-style: italic;
       font-size: 18px;
       opacity: 0;
@@ -218,7 +218,7 @@
       gap: 12px;
       min-height: 38px;
       padding-top: 10px;
-      color: #8B7A66;
+      color: #8A6B4C;
       font-style: italic;
       font-size: 15px;
     }
@@ -248,7 +248,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      color: #8B7A66;
+      color: #8A6B4C;
       font-style: italic;
       font-size: 19px;
     }
@@ -343,7 +343,7 @@
   </style>
 </helmet>
 
-<div style="position: relative; overflow: clip; background: #F1E7D3; color: #4A4036; font-family: 'Cormorant Garamond', serif; min-height: 100vh;">
+<div style="position: relative; overflow: clip; background: #F1E7D3; color: #3A2E1E; font-family: 'Cormorant Garamond', serif; min-height: 100vh;">
 
   <audio ref="{{ audioRef }}" src="assets/engagement-music.mp3" preload="auto" loop playsinline style="position: fixed; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none;"></audio>
 
@@ -384,10 +384,10 @@
       {{ heroButterfly }}
     </div>
     <sc-if value="{{ showHeroEyebrow }}" hint-placeholder-val="{{ false }}">
-      <div data-reveal="0" style="margin-top: 46px; font-size: 21px; font-weight: 500; letter-spacing: 0.5em; text-indent: 0.5em; color: #3E3222;">{{ heroEyebrow }}</div>
+      <div data-reveal="0" style="margin-top: 46px; font-size: 21px; font-weight: 500; letter-spacing: 0.5em; text-indent: 0.5em; color: #3A2E1E;">{{ heroEyebrow }}</div>
     </sc-if>
     <div data-reveal="0.2" style="margin-top: 16px; font-size: clamp(50px, 12vw, 86px); font-weight: 400; letter-spacing: 0.06em; text-indent: 0.06em; color: #3A2E1E; line-height: 1;">{{ heroTitle }}</div>
-    <div data-reveal="0.4" style="margin-top: 22px; display: flex; align-items: center; justify-content: center; gap: 20px; color: #6E5432;">
+    <div data-reveal="0.4" style="margin-top: 22px; display: flex; align-items: center; justify-content: center; gap: 20px; color: #8A6B4C;">
       <div style="font-size: 22px; line-height: 1;">&middot;</div>
       <div style="font-size: 24px; font-weight: 500; letter-spacing: 0.45em; text-indent: 0.45em;">{{ heroInviteWord }}</div>
       <div style="font-size: 22px; line-height: 1;">&middot;</div>
@@ -402,7 +402,7 @@
     <div data-reveal="0.7" style="margin-top: 36px; font-size: {{ heroTaglineFontSize }}; font-weight: 500; letter-spacing: {{ heroTaglineLetterSpacing }}; text-indent: {{ heroTaglineLetterSpacing }}; line-height: {{ heroTaglineLineHeight }}; color: {{ heroTaglineColor }}; max-width: min(90vw, 760px);">{{ heroTagline }}</div>
     <div data-write="0.4" style="margin-top: 26px; font-family: 'Pinyon Script', cursive; font-size: clamp(40px, 9vw, 58px); color: #3A2E1E; line-height: 1.25; padding: 0 8px;">{{ coupleNames }}</div>
     <sc-if value="{{ showHeroCeremonyLine }}" hint-placeholder-val="{{ false }}">
-      <div data-reveal="0.82" style="margin-top: 24px; font-size: clamp(18px, 5vw, 24px); font-weight: 500; letter-spacing: 0.16em; text-indent: 0.16em; line-height: 1.6; color: #6E5432; max-width: min(88vw, 620px);">{{ heroCeremonyLine }}</div>
+      <div data-reveal="0.82" style="margin-top: 24px; font-size: clamp(18px, 5vw, 24px); font-weight: 500; letter-spacing: 0.16em; text-indent: 0.16em; line-height: 1.6; color: #8A6B4C; max-width: min(88vw, 620px);">{{ heroCeremonyLine }}</div>
     </sc-if>
     <div style="position: absolute; bottom: 22px; left: 50%; animation: bobDown 2s ease-in-out infinite;">
       <svg width="18" height="11" viewBox="0 0 16 10" fill="none"><path d="M1 1l7 7 7-7" stroke="#A38044" stroke-width="1.2"></path></svg>
@@ -419,15 +419,15 @@
     <sc-if value="{{ showDateLabel }}" hint-placeholder-val="{{ false }}">
       <div data-reveal="0.08" style="width: 100%; text-align: center; font-size: 18px; letter-spacing: 0.42em; text-indent: 0.42em; color: #8A6B4C; margin-bottom: 18px;">{{ dateLabel }}</div>
     </sc-if>
-    <div data-reveal="0.1" style="width: 100%; text-align: center; font-size: 26px; letter-spacing: 0.5em; text-indent: 0.5em; color: #8B7A66; margin-bottom: 24px;">{{ dayText }}</div>
+    <div data-reveal="0.1" style="width: 100%; text-align: center; font-size: 26px; letter-spacing: 0.5em; text-indent: 0.5em; color: #8A6B4C; margin-bottom: 24px;">{{ dayText }}</div>
     <div data-reveal="0.2" style="display: grid; grid-template-columns: minmax(0, 1fr) 1px auto 1px minmax(0, 1fr); align-items: center; column-gap: clamp(10px, 3.2vw, 28px); width: min(92vw, 760px);">
-      <div style="font-size: clamp(14px, 4vw, 24px); letter-spacing: 0.34em; text-indent: 0.34em; color: #6E5B49; text-align: right;">{{ monthText }}</div>
+      <div style="font-size: clamp(14px, 4vw, 24px); letter-spacing: 0.34em; text-indent: 0.34em; color: #8A6B4C; text-align: right;">{{ monthText }}</div>
       <div style="width: 1px; height: 64px; background: #B3A288;"></div>
-      <div style="font-size: clamp(60px, 15vw, 104px); font-weight: 300; color: #4A4036; line-height: 1;">20</div>
+      <div style="font-size: clamp(60px, 15vw, 104px); font-weight: 300; color: #3A2E1E; line-height: 1;">20</div>
       <div style="width: 1px; height: 64px; background: #B3A288;"></div>
-      <div style="font-size: clamp(16px, 4.4vw, 26px); letter-spacing: 0.3em; text-indent: 0.3em; color: #6E5B49; text-align: left;">{{ yearText }}</div>
+      <div style="font-size: clamp(16px, 4.4vw, 26px); letter-spacing: 0.3em; text-indent: 0.3em; color: #8A6B4C; text-align: left;">{{ yearText }}</div>
     </div>
-    <div data-reveal="0.35" style="margin-top: 18px; font-size: 24px; letter-spacing: 0.32em; text-indent: 0.32em; color: #8B7A66;">{{ timeText }}</div>
+    <div data-reveal="0.35" style="margin-top: 18px; font-size: 24px; letter-spacing: 0.32em; text-indent: 0.32em; color: #8A6B4C;">{{ timeText }}</div>
     <a class="invitation-cta" data-reveal="0.45" href="assets/yeabsra-christian-engagement.ics" download="yeabsra-christian-engagement.ics" type="text/calendar" style="margin-top: 34px; display: inline-flex; align-items: center; justify-content: center; gap: 14px; border: 1px solid #A38044; border-radius: 999px; background: rgba(250, 246, 238, 0.38); padding: 15px clamp(22px, 6vw, 38px); font-size: clamp(13px, 3.8vw, 15px); font-weight: 500; letter-spacing: 0.35em; text-indent: 0.35em; color: #8A6B4C; text-decoration: none; white-space: nowrap; box-shadow: 0 8px 22px rgba(90, 70, 50, 0.08);">{{ addCalendarText }} <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 3v3M17 3v3M4.5 9.5h15M6.5 5h11A2.5 2.5 0 0 1 20 7.5v10A2.5 2.5 0 0 1 17.5 20h-11A2.5 2.5 0 0 1 4 17.5v-10A2.5 2.5 0 0 1 6.5 5Z" stroke="#8A6B4C" stroke-width="1.25" stroke-linecap="round"></path><path d="M12 12v5M9.5 14.5h5" stroke="#8A6B4C" stroke-width="1.25" stroke-linecap="round"></path></svg></a>
   </section>
 
@@ -437,7 +437,7 @@
       <sc-if value="{{ showVenueLabel }}" hint-placeholder-val="{{ false }}">
         <div style="font-size: 18px; letter-spacing: 0.42em; text-indent: 0.42em; font-weight: 400; color: #8A6B4C; text-transform: uppercase;">{{ venueLabel }}</div>
       </sc-if>
-      <div style="margin-top: {{ venueTextMarginTop }}; font-size: clamp(16px, 4vw, 20px); letter-spacing: 0.22em; text-indent: 0.22em; font-weight: 400; color: #6E5B49; text-transform: uppercase;">{{ venueText }}</div>
+      <div style="margin-top: {{ venueTextMarginTop }}; font-size: clamp(16px, 4vw, 20px); letter-spacing: 0.22em; text-indent: 0.22em; font-weight: 400; color: #8A6B4C; text-transform: uppercase;">{{ venueText }}</div>
     </div>
 
     <div data-reveal="0.12" style="margin-top: 28px; width: min(92vw, 760px); position: relative;">
@@ -450,7 +450,7 @@
         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
           <div style="width: 5px; height: 5px; border: 1px solid #B0925E; transform: rotate(45deg);"></div>
           <div style="flex: 1; height: 1px; background: #C0B098;"></div>
-          <div style="font-size: {{ locationTextFontSize }}; letter-spacing: 0.42em; text-indent: 0.42em; color: #A08464; white-space: nowrap;">{{ locationText }}</div>
+          <div style="font-size: {{ locationTextFontSize }}; letter-spacing: 0.42em; text-indent: 0.42em; color: #8A6B4C; white-space: nowrap;">{{ locationText }}</div>
           <div style="flex: 1; height: 1px; background: #C0B098;"></div>
           <div style="width: 5px; height: 5px; border: 1px solid #B0925E; transform: rotate(45deg);"></div>
         </div>
@@ -479,11 +479,11 @@
   <section data-screen-label="Footer" style="padding: 36px 24px 64px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0;">
     {{ footerButterfly }}
     <div data-reveal="0.1" style="margin-top: 36px; font-family: 'Pinyon Script', cursive; font-size: {{ withLoveFontSize }}; color: #8A6B4C; line-height: 1.2;">{{ withLoveText }}</div>
-    <div data-reveal="0.2" style="margin-top: 26px; font-size: clamp(24px, 5vw, 30px); letter-spacing: 0.35em; text-indent: 0.35em; color: #5F4F3F;">{{ footerNames }}</div>
-    <div data-reveal="0.3" style="margin-top: 18px; max-width: 560px; font-size: clamp(17px, 4.2vw, 20px); line-height: 1.55; font-style: italic; letter-spacing: {{ footerNoteLetterSpacing }}; text-indent: {{ footerNoteLetterSpacing }}; color: #7D6A55;">{{ footerNote }}</div>
+    <div data-reveal="0.2" style="margin-top: 26px; font-size: clamp(24px, 5vw, 30px); letter-spacing: 0.35em; text-indent: 0.35em; color: #3A2E1E;">{{ footerNames }}</div>
+    <div data-reveal="0.3" style="margin-top: 18px; max-width: 560px; font-size: clamp(17px, 4.2vw, 20px); line-height: 1.55; font-style: italic; letter-spacing: {{ footerNoteLetterSpacing }}; text-indent: {{ footerNoteLetterSpacing }}; color: #8A6B4C;">{{ footerNote }}</div>
     <div data-reveal="0.4" style="margin-top: 56px; display: flex; align-items: center; gap: 12px;">
       <div style="width: 40px; height: 1px; background: #C9B896;"></div>
-      <a href="https://menaincet.com" target="_blank" rel="noopener" style="font-size: 12px; letter-spacing: 0.4em; text-indent: 0.4em; color: #A99677; text-decoration: none;">MENA INC &middot; 2026</a>
+      <a href="https://menaincet.com" target="_blank" rel="noopener" style="font-size: 12px; letter-spacing: 0.4em; text-indent: 0.4em; color: #8A6B4C; text-decoration: none;">MENA INC &middot; 2026</a>
       <div style="width: 40px; height: 1px; background: #C9B896;"></div>
     </div>
   </section>
@@ -516,14 +516,14 @@ class Component extends DCLogic {
       heroTaglineFontSize: 'clamp(18px, 5vw, 24px)',
       heroTaglineLetterSpacing: '0.16em',
       heroTaglineLineHeight: '1.6',
-      heroTaglineColor: '#6E5432',
+      heroTaglineColor: '#8A6B4C',
       coupleNames: 'የአብስራ & ክርስትያን',
       showHeroCeremonyLine: true,
       heroCeremonyLine: 'የጋብቻ ሥነ ሥርዓት ተጠርተዋል',
       showDateLabel: false,
       dateLabel: 'ቀን:',
       dayText: 'እሁድ',
-      monthText: 'መስከ',
+      monthText: 'መስከረም',
       yearText: '2026',
       timeText: 'ከቀኑ 5:30',
       addCalendarText: 'ቀን መቁጠራ ላይ ያስፍሩ',
