@@ -1,0 +1,13 @@
+{
+  "name": "yeabsra-christian-engagement-amharic",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "preview": "vite preview --host 127.0.0.1"
+  },
+  "devDependencies": {
+    "vite": "^7.1.3"
+  }
+}

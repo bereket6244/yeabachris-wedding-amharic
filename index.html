@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yeabsra &amp; Christian &mdash; Engagement Ceremony</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="assets/doves-poster.webp" fetchpriority="high">
+  <link rel="preload" as="video" href="assets/doves-mobile.webm" type="video/webm" media="(max-width: 640px)">
+  <link rel="preload" as="video" href="assets/doves-fast.webm" type="video/webm" media="(min-width: 641px)">
+  <link rel="preload" as="image" href="assets/doves-ios-sprite-poster.jpg" media="(max-width: 640px)">
+  <link rel="preload" as="image" href="assets/doves-ios-sprite.jpg" media="(max-width: 640px)">
+  <link rel="preload" as="image" href="assets/doves-mobile-hq.webp" media="(max-width: 640px)">
+  <link rel="preload" as="image" href="assets/doves-fast-hq.webp" media="(min-width: 641px)">
+  <link rel="preload" as="audio" href="assets/engagement-music.mp3" type="audio/mpeg">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&amp;family=Pinyon+Script&amp;display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; padding: 0; background: #F1E7D3; scrollbar-color: #A08464 #EFE1C7; scrollbar-width: thin; }
+    ::-webkit-scrollbar { width: 12px; height: 0; }
+    ::-webkit-scrollbar-track { background: #EFE1C7; }
+    ::-webkit-scrollbar-thumb { background: #A08464; border: 3px solid #EFE1C7; border-radius: 999px; }
+    a { color: #8A6B4C; }
+    a:hover { color: #6E5439; }
+    @keyframes flap { from { transform: scaleX(1); } to { transform: scaleX(0.22); } }
+    @keyframes driftA {
+      0% { transform: translate(0, 0) rotate(-6deg); }
+      25% { transform: translate(38px, -55px) rotate(8deg); }
+      50% { transform: translate(-18px, -105px) rotate(-9deg); }
+      75% { transform: translate(-52px, -38px) rotate(6deg); }
+      100% { transform: translate(0, 0) rotate(-6deg); }
+    }
+    @keyframes driftB {
+      0% { transform: translate(0, 0) rotate(7deg); }
+      25% { transform: translate(-42px, -48px) rotate(-8deg); }
+      50% { transform: translate(14px, -96px) rotate(10deg); }
+      75% { transform: translate(48px, -30px) rotate(-5deg); }
+      100% { transform: translate(0, 0) rotate(7deg); }
+    }
+    @keyframes heroFloat {
+      0%, 100% { transform: translateY(0) rotate(-2deg); }
+      50% { transform: translateY(-14px) rotate(2deg); }
+    }
+    @keyframes petalFall {
+      0% { transform: translateY(-6vh) translateX(0) rotate(0deg); opacity: 0; }
+      10% { opacity: 0.7; }
+      90% { opacity: 0.6; }
+      100% { transform: translateY(108vh) translateX(70px) rotate(320deg); opacity: 0; }
+    }
+    @keyframes pulseFade { from { opacity: 0.4; } to { opacity: 1; } }
+    @keyframes sparkle {
+      0%, 100% { transform: scale(0.55) rotate(45deg); opacity: 0.35; }
+      50% { transform: scale(1) rotate(45deg); opacity: 1; }
+    }
+    @keyframes bobDown {
+      0%, 100% { transform: translate(-50%, 0); opacity: 0.55; }
+      50% { transform: translate(-50%, 9px); opacity: 1; }
+    }
+    @keyframes flapHalf { from { transform: scaleX(1); } to { transform: scaleX(0.9); } }
+    @keyframes goboSway {
+      from { transform: translate(0, 0) rotate(0deg); }
+      to { transform: translate(26px, 14px) rotate(1.8deg); }
+    }
+    @keyframes glowPulse {
+      from { opacity: 0.35; }
+      to { opacity: 0.8; }
+    }
+    @keyframes uploadSweep {
+      from { transform: translateX(-120%); }
+      to { transform: translateX(120%); }
+    }
+    @keyframes uploadSpin {
+      to { transform: rotate(360deg); }
+    }
+    .invitation-cta {
+      min-width: min(86vw, 294px);
+      min-height: 48px;
+      box-sizing: border-box;
+    }
+    .guest-photo-upload { position: relative; overflow: hidden; --upload-progress: 0%; }
+    .guest-photo-upload::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(163, 128, 68, 0.18), rgba(163, 128, 68, 0.28));
+      transform: scaleX(0);
+      transform-origin: left center;
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.24s ease, opacity 0.24s ease;
+    }
+    .guest-photo-upload::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.42) 45%, transparent 76%);
+      transform: translateX(-120%);
+      opacity: 0;
+      pointer-events: none;
+    }
+    .guest-photo-upload.is-uploading {
+      cursor: wait;
+      color: #6E5439;
+      background: rgba(250, 246, 238, 0.7) !important;
+    }
+    .guest-photo-upload.is-uploading::before {
+      opacity: 1;
+      transform: scaleX(var(--upload-progress));
+    }
+    .guest-photo-upload.is-uploading::after {
+      opacity: 1;
+      animation: uploadSweep 1.25s ease-in-out infinite;
+    }
+    .guest-photo-upload > * { position: relative; z-index: 1; }
+    #guest-photo-input {
+      position: fixed;
+      width: 1px;
+      height: 1px;
+      opacity: 0.01;
+      pointer-events: none;
+      left: 0;
+      bottom: 0;
+    }
+    .guest-upload-count { display: none; font-style: italic; letter-spacing: 0.18em; text-indent: 0.18em; }
+    .guest-photo-upload.is-uploading .guest-upload-count { display: inline-block; }
+    .guest-upload-spinner {
+      display: none;
+      width: 17px;
+      height: 17px;
+      border: 1px solid rgba(138, 107, 76, 0.28);
+      border-top-color: #8A6B4C;
+      border-radius: 50%;
+      animation: uploadSpin 0.85s linear infinite;
+      flex: 0 0 auto;
+    }
+    .guest-photo-upload.is-uploading .guest-upload-spinner { display: inline-block; }
+    .guest-photo-upload.is-uploading .guest-upload-plus { display: none; }
+    .guest-upload-status {
+      min-height: 24px;
+      margin-top: 18px;
+      color: #8B7A66;
+      font-style: italic;
+      font-size: 18px;
+      opacity: 0;
+      transform: translateY(-4px);
+      transition: opacity 0.28s ease, transform 0.28s ease;
+    }
+    .guest-upload-status.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .guest-gallery-shell { width: 100%; position: relative; }
+    .guest-gallery-track {
+      display: flex;
+      gap: clamp(14px, 3vw, 30px);
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      padding: 26px max(24px, calc((100vw - min(82vw, 430px)) / 2)) 34px;
+      scrollbar-width: none;
+      box-sizing: border-box;
+    }
+    .guest-gallery-track::-webkit-scrollbar { display: none; }
+    .guest-photo-card {
+      flex: 0 0 min(82vw, 430px);
+      scroll-snap-align: center;
+      background: linear-gradient(145deg, #FBF5E9 0%, #EFE1C7 100%);
+      border: 1px solid #BCA987;
+      padding: 10px;
+      box-sizing: border-box;
+      box-shadow: 0 18px 42px rgba(74, 64, 54, 0.12);
+      opacity: 0.42;
+      transform: scale(0.82);
+      transform-origin: center;
+      transition: transform 0.45s ease, opacity 0.45s ease, filter 0.45s ease;
+      filter: saturate(0.74);
+    }
+    .guest-photo-card.is-active {
+      opacity: 1;
+      transform: scale(1);
+      filter: saturate(1);
+    }
+    .guest-photo-card.is-deleting {
+      opacity: 0;
+      transform: scale(0.72);
+      pointer-events: none;
+    }
+    .guest-photo-card img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      display: block;
+      border: 1px solid rgba(160, 132, 100, 0.38);
+      filter: sepia(0.08) saturate(0.92);
+    }
+    .guest-photo-view {
+      display: block;
+      width: 100%;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      cursor: zoom-in;
+      font: inherit;
+    }
+    .guest-photo-view:focus-visible {
+      outline: 2px solid #A38044;
+      outline-offset: 4px;
+    }
+    .guest-photo-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 38px;
+      padding-top: 10px;
+      color: #8B7A66;
+      font-style: italic;
+      font-size: 15px;
+    }
+    .guest-photo-delete {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1px solid #A08464;
+      background: rgba(250, 246, 238, 0.82);
+      color: #8A6B4C;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+    }
+    .guest-photo-delete.is-deleting {
+      animation: uploadSpin 0.85s linear infinite;
+      color: transparent;
+    }
+    .guest-gallery-empty {
+      width: 100%;
+      min-height: 74px;
+      padding: 18px 24px 8px;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #8B7A66;
+      font-style: italic;
+      font-size: 19px;
+    }
+    .guest-gallery-arrow {
+      position: absolute;
+      top: 50%;
+      z-index: 8;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      border: 1px solid #A08464;
+      background: rgba(250, 246, 238, 0.86);
+      color: #8A6B4C;
+      box-shadow: 0 10px 28px rgba(74, 64, 54, 0.14);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transform: translateY(-50%);
+      transition: opacity 0.25s ease, background 0.25s ease, transform 0.25s ease;
+    }
+    .guest-gallery-arrow:hover { background: #FBF5E9; transform: translateY(-50%) scale(1.04); }
+    .guest-gallery-arrow:disabled { opacity: 0.28; cursor: default; transform: translateY(-50%); }
+    .guest-gallery-arrow[data-direction="prev"] { left: max(24px, calc((100vw - 960px) / 2)); }
+    .guest-gallery-arrow[data-direction="next"] { right: max(24px, calc((100vw - 960px) / 2)); }
+    .guest-gallery-arrow.is-visible { display: inline-flex; }
+    .guest-photo-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 80;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(18px, 4vw, 42px);
+      box-sizing: border-box;
+      background: rgba(52, 42, 30, 0.78);
+      backdrop-filter: blur(10px);
+    }
+    .guest-photo-lightbox.is-open { display: flex; }
+    .guest-photo-lightbox-frame {
+      position: relative;
+      width: min(94vw, 1040px);
+      height: min(88vh, 920px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .guest-photo-lightbox-img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border: 1px solid rgba(250, 246, 238, 0.5);
+      background: #F1E7D3;
+      box-shadow: 0 28px 80px rgba(20, 15, 10, 0.34);
+    }
+    .guest-photo-lightbox-close {
+      position: absolute;
+      top: -14px;
+      right: -14px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: 1px solid #A08464;
+      background: rgba(250, 246, 238, 0.96);
+      color: #8A6B4C;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 28px rgba(20, 15, 10, 0.24);
+    }
+    .guest-photo-lightbox-close:focus-visible {
+      outline: 2px solid #F1E7D3;
+      outline-offset: 3px;
+    }
+    .hero-dove-video::-webkit-media-controls,
+    .hero-dove-video::-webkit-media-controls-start-playback-button,
+    .hero-dove-video::-webkit-media-controls-overlay-play-button {
+      display: none !important;
+      opacity: 0 !important;
+      -webkit-appearance: none;
+    }
+    @keyframes doveSprite {
+      from { background-position: 0 0; }
+      to { background-position: 100% 0; }
+    }
+    @media (hover: none), (pointer: coarse) {
+      .guest-gallery-arrow.is-visible { display: none; }
+    }
+  </style>
+</helmet>
+
+<div style="position: relative; overflow: clip; background: #F1E7D3; color: #4A4036; font-family: 'Cormorant Garamond', serif; min-height: 100vh;">
+
+  <audio ref="{{ audioRef }}" src="assets/engagement-music.mp3" preload="auto" loop playsinline style="position: fixed; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none;"></audio>
+
+  {{ goboLayer }}
+  {{ butterflyLayer }}
+  {{ petalLayer }}
+
+  <!-- Music toggle -->
+  <sc-if value="{{ hasMusic }}" hint-placeholder-val="{{ false }}">
+    <button onClick="{{ toggleMusic }}" aria-label="Toggle music" style="position: fixed; right: 20px; bottom: 20px; z-index: 60; width: 52px; height: 52px; border-radius: 50%; border: 1px solid #A08464; background: rgba(250, 246, 238, 0.92); color: #8A6B4C; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 18px rgba(90, 70, 50, 0.18);">
+      <sc-if value="{{ playing }}" hint-placeholder-val="{{ false }}">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#8A6B4C"><rect x="6" y="4" width="4" height="16" rx="1"></rect><rect x="14" y="4" width="4" height="16" rx="1"></rect></svg>
+      </sc-if>
+      <sc-if value="{{ notPlaying }}" hint-placeholder-val="{{ true }}">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#8A6B4C"><path d="M9 18V6l10 2v10.5a2.5 2.5 0 1 1-2-2.45V9.6L11 8.4v11.1A2.5 2.5 0 1 1 9 17z"></path></svg>
+      </sc-if>
+    </button>
+  </sc-if>
+
+  <!-- ═══ Envelope intro ═══ -->
+  <sc-if value="{{ showOverlay }}" hint-placeholder-val="{{ true }}">
+    <div ref="{{ overlayRef }}" onClick="{{ openEnvelope }}" data-screen-label="Envelope" style="position: fixed; inset: 0; z-index: 50; background: #F1E7D3; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: opacity 1.1s ease;">
+      <div style="position: relative; width: min(100vw, 76vh, 600px); aspect-ratio: 900 / 1125; perspective: 1200px;">
+        <div ref="{{ glowRef }}" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 90%; height: 70%; background: radial-gradient(ellipse, rgba(255, 246, 218, 0.95) 0%, rgba(255, 246, 218, 0) 65%); opacity: 0; transition: opacity 0.6s ease;"></div>
+        <img ref="{{ openRef }}" src="assets/envelope-open-yeabsra.jpg" alt="Opened envelope" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; opacity: 0; transform: scale(0.9) translateY(30px); transition: opacity 0.9s ease 0.35s, transform 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.35s; -webkit-mask-image: linear-gradient(to right, transparent, black 9%, black 91%, transparent), linear-gradient(to bottom, transparent, black 9%, black 91%, transparent); -webkit-mask-composite: source-in; mask-image: linear-gradient(to right, transparent, black 9%, black 91%, transparent), linear-gradient(to bottom, transparent, black 9%, black 91%, transparent); mask-composite: intersect;">
+        <img ref="{{ closedRef }}" src="assets/envelope-closed-yeabsra.jpg" alt="Sealed envelope — tap to open" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; transition: opacity 0.55s ease 0.3s, transform 0.5s ease; -webkit-mask-image: linear-gradient(to right, transparent, black 9%, black 91%, transparent), linear-gradient(to bottom, transparent, black 9%, black 91%, transparent); -webkit-mask-composite: source-in; mask-image: linear-gradient(to right, transparent, black 9%, black 91%, transparent), linear-gradient(to bottom, transparent, black 9%, black 91%, transparent); mask-composite: intersect;">
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- ═══ Hero ═══ -->
+  <section data-screen-label="Hero" style="min-height: 88vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 42px 24px 40px; gap: 0; position: relative; background: #F1E7D3;">
+    <div style="position: relative; animation: heroFloat 7s ease-in-out infinite;">
+      {{ heroButterfly }}
+    </div>
+    <div data-reveal="0" style="margin-top: 46px; font-size: 21px; font-weight: 500; letter-spacing: 0.5em; text-indent: 0.5em; color: #3E3222;">{{ heroEyebrow }}</div>
+    <div data-reveal="0.2" style="margin-top: 16px; font-size: clamp(50px, 12vw, 86px); font-weight: 400; letter-spacing: 0.06em; text-indent: 0.06em; color: #3A2E1E; line-height: 1;">{{ heroTitle }}</div>
+    <div data-reveal="0.4" style="margin-top: 22px; display: flex; align-items: center; justify-content: center; gap: 20px; color: #6E5432;">
+      <div style="font-size: 22px; line-height: 1;">&middot;</div>
+      <div style="font-size: 24px; font-weight: 500; letter-spacing: 0.45em; text-indent: 0.45em;">{{ heroInviteWord }}</div>
+      <div style="font-size: 22px; line-height: 1;">&middot;</div>
+    </div>
+    <div data-reveal="0.55" style="margin-top: 52px; width: min(74vw, 430px); display: flex; align-items: center; gap: 10px;">
+      <div style="width: 5px; height: 5px; border: 1px solid #B0925E; transform: rotate(45deg);"></div>
+      <div style="flex: 1; height: 1px; background: #B99B69;"></div>
+      <svg width="40" height="22" viewBox="0 0 40 22" fill="none"><path d="M20 3l4 8-4 8-4-8z" stroke="#A38044" stroke-width="1"></path><path d="M12 11h4M24 11h4" stroke="#A38044" stroke-width="1"></path><circle cx="20" cy="11" r="1.3" fill="#A38044"></circle></svg>
+      <div style="flex: 1; height: 1px; background: #B99B69;"></div>
+      <div style="width: 5px; height: 5px; border: 1px solid #B0925E; transform: rotate(45deg);"></div>
+    </div>
+    <div data-reveal="0.7" style="margin-top: 36px; font-size: clamp(13px, 4.2vw, 16px); font-weight: 500; letter-spacing: 0.22em; text-indent: 0.22em; line-height: 1.8; color: #8A6B4C; max-width: min(90vw, 760px);">{{ heroTagline }}</div>
+    <div data-write="0.4" style="margin-top: 26px; font-family: 'Pinyon Script', cursive; font-size: clamp(40px, 9vw, 58px); color: #3A2E1E; line-height: 1.25; padding: 0 8px;">{{ coupleNames }}</div>
+    <div style="position: absolute; bottom: 22px; left: 50%; animation: bobDown 2s ease-in-out infinite;">
+      <svg width="18" height="11" viewBox="0 0 16 10" fill="none"><path d="M1 1l7 7 7-7" stroke="#A38044" stroke-width="1.2"></path></svg>
+    </div>
+  </section>
+
+  <!-- ═══ The couple ═══ -->
+  <section data-screen-label="The Couple" style="padding: 28px 24px 28px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+    <div data-reveal="0.15" style="position: relative;">
+      <div style="width: min(76vw, 340px); aspect-ratio: 3 / 4.25; border: 1px solid #A08464; border-radius: 999px 999px 10px 10px; padding: 11px; box-sizing: border-box;">
+        <img src="assets/couple.jpg" alt="Yeabsra and Christian" style="width: 100%; height: 100%; object-fit: cover; object-position: 55% 50%; border-radius: 999px 999px 6px 6px; display: block;">
+      </div>
+      <div style="position: absolute; left: -30px; top: 46%; width: 11px; height: 11px; background: #8A6B4C; animation: sparkle 2.6s ease-in-out infinite;"></div>
+      <div style="position: absolute; right: -30px; top: 46%; width: 11px; height: 11px; background: #8A6B4C; animation: sparkle 2.6s ease-in-out 1.3s infinite;"></div>
+    </div>
+  </section>
+
+  <!-- ═══ The date ═══ -->
+  <section data-screen-label="The Date" style="background: #F1E7D3; padding: 26px 24px 58px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+    <div data-reveal="0" style="display: flex; align-items: center; gap: 14px; margin-bottom: 34px;">
+      <div style="width: 60px; height: 1px; background: #C0B098;"></div>
+      <div style="width: 7px; height: 7px; border: 1px solid #A08464; transform: rotate(45deg);"></div>
+      <div style="width: 60px; height: 1px; background: #C0B098;"></div>
+    </div>
+    <div data-reveal="0.08" style="width: 100%; text-align: center; font-size: 18px; letter-spacing: 0.42em; text-indent: 0.42em; color: #8A6B4C; margin-bottom: 18px;">{{ dateLabel }}</div>
+    <div data-reveal="0.1" style="width: 100%; text-align: center; font-size: 26px; letter-spacing: 0.5em; text-indent: 0.5em; color: #8B7A66; margin-bottom: 24px;">{{ dayText }}</div>
+    <div data-reveal="0.2" style="display: grid; grid-template-columns: minmax(0, 1fr) 1px auto 1px minmax(0, 1fr); align-items: center; column-gap: clamp(10px, 3.2vw, 28px); width: min(92vw, 760px);">
+      <div style="font-size: clamp(14px, 4vw, 24px); letter-spacing: 0.34em; text-indent: 0.34em; color: #6E5B49; text-align: right;">{{ monthText }}</div>
+      <div style="width: 1px; height: 64px; background: #B3A288;"></div>
+      <div style="font-size: clamp(60px, 15vw, 104px); font-weight: 300; color: #4A4036; line-height: 1;">20</div>
+      <div style="width: 1px; height: 64px; background: #B3A288;"></div>
+      <div style="font-size: clamp(16px, 4.4vw, 26px); letter-spacing: 0.3em; text-indent: 0.3em; color: #6E5B49; text-align: left;">{{ yearText }}</div>
+    </div>
+    <div data-reveal="0.35" style="margin-top: 18px; font-size: 24px; letter-spacing: 0.32em; text-indent: 0.32em; color: #8B7A66;">{{ timeText }}</div>
+    <a class="invitation-cta" data-reveal="0.45" href="assets/yeabsra-christian-engagement.ics" download="yeabsra-christian-engagement.ics" type="text/calendar" style="margin-top: 34px; display: inline-flex; align-items: center; justify-content: center; gap: 14px; border: 1px solid #A38044; border-radius: 999px; background: rgba(250, 246, 238, 0.38); padding: 15px clamp(22px, 6vw, 38px); font-size: clamp(13px, 3.8vw, 15px); font-weight: 500; letter-spacing: 0.35em; text-indent: 0.35em; color: #8A6B4C; text-decoration: none; white-space: nowrap; box-shadow: 0 8px 22px rgba(90, 70, 50, 0.08);">{{ addCalendarText }} <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 3v3M17 3v3M4.5 9.5h15M6.5 5h11A2.5 2.5 0 0 1 20 7.5v10A2.5 2.5 0 0 1 17.5 20h-11A2.5 2.5 0 0 1 4 17.5v-10A2.5 2.5 0 0 1 6.5 5Z" stroke="#8A6B4C" stroke-width="1.25" stroke-linecap="round"></path><path d="M12 12v5M9.5 14.5h5" stroke="#8A6B4C" stroke-width="1.25" stroke-linecap="round"></path></svg></a>
+  </section>
+
+  <!-- ═══ Map preview ═══ -->
+  <section data-screen-label="Map Preview" style="padding: 38px 24px 58px; display: flex; flex-direction: column; align-items: center; text-align: center; background: #F1E7D3;">
+    <div data-reveal="0" style="display: flex; flex-direction: column; align-items: center; line-height: 1;">
+      <div style="font-size: 18px; letter-spacing: 0.42em; text-indent: 0.42em; font-weight: 400; color: #8A6B4C; text-transform: uppercase;">{{ venueLabel }}</div>
+      <div style="margin-top: 16px; font-size: clamp(16px, 4vw, 20px); letter-spacing: 0.22em; text-indent: 0.22em; font-weight: 400; color: #6E5B49; text-transform: uppercase;">{{ venueText }}</div>
+    </div>
+
+    <div data-reveal="0.12" style="margin-top: 28px; width: min(92vw, 760px); position: relative;">
+      <div style="position: absolute; inset: -16px; border: 1px solid rgba(160, 132, 100, 0.38); pointer-events: none;"></div>
+      <div style="position: absolute; left: -24px; top: -24px; width: 44px; height: 44px; border-left: 1px solid #A08464; border-top: 1px solid #A08464; pointer-events: none;"></div>
+      <div style="position: absolute; right: -24px; top: -24px; width: 44px; height: 44px; border-right: 1px solid #A08464; border-top: 1px solid #A08464; pointer-events: none;"></div>
+      <div style="position: absolute; left: -24px; bottom: -24px; width: 44px; height: 44px; border-left: 1px solid #A08464; border-bottom: 1px solid #A08464; pointer-events: none;"></div>
+      <div style="position: absolute; right: -24px; bottom: -24px; width: 44px; height: 44px; border-right: 1px solid #A08464; border-bottom: 1px solid #A08464; pointer-events: none;"></div>
+      <div style="position: relative; background: linear-gradient(145deg, #FBF5E9 0%, #EFE1C7 100%); border: 1px solid #BCA987; padding: clamp(12px, 2.8vw, 20px); box-sizing: border-box; box-shadow: 0 24px 60px rgba(74, 64, 54, 0.12);">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
+          <div style="width: 5px; height: 5px; border: 1px solid #B0925E; transform: rotate(45deg);"></div>
+          <div style="flex: 1; height: 1px; background: #C0B098;"></div>
+          <div style="font-size: {{ locationTextFontSize }}; letter-spacing: 0.42em; text-indent: 0.42em; color: #A08464; white-space: nowrap;">{{ locationText }}</div>
+          <div style="flex: 1; height: 1px; background: #C0B098;"></div>
+          <div style="width: 5px; height: 5px; border: 1px solid #B0925E; transform: rotate(45deg);"></div>
+        </div>
+        <div style="position: relative; overflow: hidden; border: 1px solid rgba(160, 132, 100, 0.55); background: #E7D7BA;">
+          <iframe title="Engagement ceremony location map preview" src="https://maps.google.com/maps?q=8.9518998,38.7946283&amp;z=16&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="width: 100%; height: min(68vw, 420px); min-height: 280px; border: 0; display: block; filter: sepia(0.28) saturate(0.76) contrast(0.94);"></iframe>
+          <div style="position: absolute; inset: 0; pointer-events: none; background: linear-gradient(to bottom, rgba(247, 239, 223, 0.22), rgba(247, 239, 223, 0) 28%, rgba(74, 64, 54, 0.08)); mix-blend-mode: multiply;"></div>
+        </div>
+      </div>
+    </div>
+
+    <a class="invitation-cta" data-reveal="0.35" href="https://maps.app.goo.gl/yyGedyGNWSn4TGHV9?g_st=it" target="_blank" rel="noopener" style="margin-top: 34px; display: inline-flex; align-items: center; justify-content: center; gap: 14px; border: 1px solid #A38044; border-radius: 999px; background: rgba(250, 246, 238, 0.38); padding: 15px clamp(22px, 6vw, 38px); font-size: clamp(13px, 3.8vw, 15px); font-weight: 500; letter-spacing: 0.35em; text-indent: 0.35em; color: #8A6B4C; text-decoration: none; white-space: nowrap; box-shadow: 0 8px 22px rgba(90, 70, 50, 0.08);">{{ openMapText }} <svg width="22" height="10" viewBox="0 0 22 10" fill="none"><path d="M0 5h20M16 1l4 4-4 4" stroke="#8A6B4C" stroke-width="1.1"></path></svg></a>
+  </section>
+
+  <!-- ═══ Guest photos ═══ -->
+  <section id="guest-photos" data-screen-label="Guest Photos" style="background: #F1E7D3; padding: 46px 0 30px; display: flex; flex-direction: column; align-items: center; text-align: center; overflow: hidden;">
+    <div data-reveal="0" style="display: flex; flex-direction: column; align-items: center; line-height: 1; padding: 0 24px;">
+      <div style="font-size: {{ guestTitleFontSize }}; letter-spacing: 0.4em; text-indent: 0.4em; font-weight: 300; color: #6E5B49;">{{ guestTitle }}</div>
+      <div style="font-family: 'Pinyon Script', cursive; font-size: clamp(44px, 9vw, 56px); color: #8A6B4C; margin-top: -6px; line-height: 1.2;">{{ memoriesTitle }}</div>
+      <p style="margin: 20px auto 0; max-width: 560px; font-size: {{ memoriesDescriptionFontSize }}; line-height: 1.55; font-style: italic; letter-spacing: {{ memoriesDescriptionLetterSpacing }}; text-indent: {{ memoriesDescriptionLetterSpacing }}; color: #7D6A55;">{{ memoriesDescription }}</p>
+    </div>
+
+    <button id="guest-photo-upload-label" onClick="{{ openGuestPhotoPicker }}" data-reveal="0.12" class="guest-photo-upload invitation-cta" type="button" style="font-family: 'Cormorant Garamond', serif; margin-top: 34px; display: inline-flex; align-items: center; justify-content: center; gap: 14px; border: 1px solid #A38044; border-radius: 999px; background: rgba(250, 246, 238, 0.42); padding: 15px clamp(22px, 6vw, 38px); font-size: clamp(13px, 3.8vw, 15px); font-weight: 500; letter-spacing: 0.35em; text-indent: 0.35em; color: #8A6B4C; box-shadow: 0 8px 22px rgba(90, 70, 50, 0.08); cursor: pointer;">
+      <span id="guest-photo-upload-text">{{ sharePhotoText }}</span>
+      <span id="guest-photo-upload-count" class="guest-upload-count"></span>
+      <span class="guest-upload-spinner" aria-hidden="true"></span>
+      <svg class="guest-upload-plus" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="#8A6B4C" stroke-width="1.4" stroke-linecap="round"></path></svg>
+    </button>
+    <input id="guest-photo-input" name="photos" type="file" accept="image/jpeg,image/png,image/webp,image/*" multiple="multiple">
+    <div id="guest-upload-status" class="guest-upload-status" role="status" aria-live="polite"></div>
+
+    <div data-reveal="0.24" class="guest-gallery-shell" style="margin-top: 24px;">
+      <div style="position: absolute; left: 0; right: 0; top: -20px; height: 1px; background: linear-gradient(to right, transparent, #C0B098 18%, #C0B098 82%, transparent);"></div>
+      <button class="guest-gallery-arrow" data-direction="prev" type="button" aria-label="Previous photo">
+        <svg width="24" height="14" viewBox="0 0 24 14" fill="none" aria-hidden="true"><path d="M24 7H2M8 1L2 7l6 6" stroke="#8A6B4C" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </button>
+      <div id="guest-gallery-track" class="guest-gallery-track" aria-live="polite"></div>
+      <button class="guest-gallery-arrow" data-direction="next" type="button" aria-label="Next photo">
+        <svg width="24" height="14" viewBox="0 0 24 14" fill="none" aria-hidden="true"><path d="M0 7h22M16 1l6 6-6 6" stroke="#8A6B4C" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </button>
+      <div id="guest-gallery-empty" class="guest-gallery-empty" style="letter-spacing: {{ emptyGalleryLetterSpacing }}; text-indent: {{ emptyGalleryLetterSpacing }};">{{ emptyGalleryText }}</div>
+    </div>
+  </section>
+  <div id="guest-photo-lightbox" class="guest-photo-lightbox" role="dialog" aria-modal="true" aria-label="Guest photo viewer">
+    <div class="guest-photo-lightbox-frame">
+      <img id="guest-photo-lightbox-img" class="guest-photo-lightbox-img" alt="Guest engagement ceremony memory">
+      <button id="guest-photo-lightbox-close" class="guest-photo-lightbox-close" type="button" aria-label="Close photo">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17" stroke="#8A6B4C" stroke-width="1.8" stroke-linecap="round"></path></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ═══ Footer ═══ -->
+  <section data-screen-label="Footer" style="padding: 36px 24px 64px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0;">
+    {{ footerButterfly }}
+    <div data-reveal="0.1" style="margin-top: 36px; font-family: 'Pinyon Script', cursive; font-size: 42px; color: #8A6B4C; line-height: 1.2;">{{ withLoveText }}</div>
+    <div data-reveal="0.2" style="margin-top: 26px; font-size: clamp(24px, 5vw, 30px); letter-spacing: 0.35em; text-indent: 0.35em; color: #5F4F3F;">{{ footerNames }}</div>
+    <div data-reveal="0.3" style="margin-top: 18px; max-width: 560px; font-size: clamp(17px, 4.2vw, 20px); line-height: 1.55; font-style: italic; letter-spacing: {{ footerNoteLetterSpacing }}; text-indent: {{ footerNoteLetterSpacing }}; color: #7D6A55;">{{ footerNote }}</div>
+    <div data-reveal="0.4" style="margin-top: 56px; display: flex; align-items: center; gap: 12px;">
+      <div style="width: 40px; height: 1px; background: #C9B896;"></div>
+      <a href="https://menaincet.com" target="_blank" rel="noopener" style="font-size: 12px; letter-spacing: 0.4em; text-indent: 0.4em; color: #A99677; text-decoration: none;">MENA INC &middot; 2026</a>
+      <div style="width: 40px; height: 1px; background: #C9B896;"></div>
+    </div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;butterflyCount&quot;: {&quot;editor&quot;: &quot;range&quot;, &quot;default&quot;: 4, &quot;min&quot;: 0, &quot;max&quot;: 16, &quot;step&quot;: 1, &quot;tsType&quot;: &quot;number&quot;, &quot;section&quot;: &quot;Atmosphere&quot;}, &quot;butterflySpeed&quot;: {&quot;editor&quot;: &quot;range&quot;, &quot;default&quot;: 1, &quot;min&quot;: 0.4, &quot;max&quot;: 2, &quot;step&quot;: 0.1, &quot;tsType&quot;: &quot;number&quot;, &quot;section&quot;: &quot;Atmosphere&quot;}, &quot;fallingPetals&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Atmosphere&quot;}}">
+class Component extends DCLogic {
+  state = { opened: false, playing: false, hasMusic: false, dovesReady: false, isAmharic: true };
+
+  constructor(props) {
+    super(props);
+    this.overlayRef = React.createRef();
+    this.closedRef = React.createRef();
+    this.openRef = React.createRef();
+    this.glowRef = React.createRef();
+    this.audioRef = React.createRef();
+    this._revealed = false;
+    this._opening = false;
+  }
+
+  copy() {
+    return {
+      heroEyebrow: 'እርስዎ',
+      heroTitle: 'በክብር',
+      heroInviteWord: 'ተጋብዘዋል',
+      heroTagline: 'የአብሮነታችንን አዲስ ጅማሬ ለማክበር',
+      coupleNames: 'የአብስራ & ክርስትያን',
+      dateLabel: 'ቀን:',
+      dayText: 'እሁድ',
+      monthText: 'መስከ',
+      yearText: '2026',
+      timeText: 'ከቀኑ 5:30',
+      addCalendarText: 'ቀን መቁጠራ ላይ ያስፍሩ',
+      venueLabel: 'ቦታ:',
+      venueText: 'በቤተሰብ መኖሪያ፣ ቦሌ ቡልቡላ',
+      locationText: 'አቅጣጫ',
+      locationTextFontSize: '16px',
+      openMapText: 'ካርታ ክፈት',
+      guestTitle: 'እንግዶች',
+      guestTitleFontSize: '28px',
+      memoriesTitle: 'ትዝታዎች',
+      memoriesDescriptionFontSize: 'clamp(14px, 3.6vw, 17px)',
+      memoriesDescriptionLetterSpacing: '0.08em',
+      memoriesDescription: 'ከክብረ በዓሉ የምትወዷቸውን ጊዜዎች በፎቶ ያጋሩ። ፎቶዎቹ ለሁሉም ይታያሉ፣ እና ከዚህ መሣሪያ ያስገባችኋቸውን ፎቶዎች ማጥፋት ትችላላችሁ።',
+      sharePhotoText: 'ፎቶ ያጋሩ',
+      uploadingText: 'በመጫን ላይ',
+      emptyGalleryText: 'ያጋራችኋቸው ፎቶዎች እዚህ ይታያሉ።',
+      emptyGalleryLetterSpacing: '0.08em',
+      galleryUnavailableText: 'የእንግዶች ፎቶዎች ለጊዜው አይገኙም።',
+      uploadFailedText: 'ጭነቱ አልተጠናቀቀም። ያነሱ ወይም ትንንሽ ፎቶዎች ይሞክሩ።',
+      deleteFailedText: 'ያንን ፎቶ ማጥፋት አልተቻለም። እባክዎ እንደገና ይሞክሩ።',
+      photoSingular: '1 ፎቶ',
+      photoPlural: count => count + ' ፎቶዎች',
+      readPrefix: 'በማንበብ ላይ ',
+      preparePrefix: 'በማዘጋጀት ላይ ',
+      uploadPrefix: 'በመጫን ላይ ',
+      finishUploadText: 'ጭነቱ በመጠናቀቅ ላይ...',
+      limitNoteText: ' የመጀመሪያዎቹን 12 ብቻ በመጫን ላይ።',
+      addedText: count => count === 1 ? '1 ፎቶ ታክሏል።' : count + ' ፎቶዎች ታክለዋል።',
+      skippedText: count => count + ' ተዘለዋል።',
+      photoAlt: 'የእንግዶች የእጮኝነት ሥነ ሥርዓት ትዝታ',
+      photoAltFrom: date => 'የእንግዶች የእጮኝነት ሥነ ሥርዓት ትዝታ ከ' + date,
+      withLoveText: 'በፍቅር፣',
+      footerNames: 'ያቢ & ክሪስ',
+      footerNote: 'መገኘታችሁ ለእኛ ትልቅ ዋጋ አለው።',
+      footerNoteLetterSpacing: '0.08em'
+    };
+  }
+
+  refreshGuestGalleryLanguage() {
+    const root = document.querySelector('.sc-host');
+    if (!root) return;
+    const text = this.copy();
+    const uploadLabel = root.querySelector('#guest-photo-upload-label');
+    const uploadText = root.querySelector('#guest-photo-upload-text');
+    const empty = root.querySelector('#guest-gallery-empty');
+    if (uploadText && (!uploadLabel || !uploadLabel.classList.contains('is-uploading'))) {
+      uploadText.textContent = text.sharePhotoText;
+    }
+    if (empty && empty.dataset.unavailable === 'true') {
+      empty.textContent = text.galleryUnavailableText;
+    } else if (empty) {
+      empty.textContent = text.emptyGalleryText;
+    }
+    if (empty) {
+      empty.style.letterSpacing = text.emptyGalleryLetterSpacing;
+      empty.style.textIndent = text.emptyGalleryLetterSpacing;
+    }
+  }
+
+  componentDidMount() {
+    this.setState({ hasMusic: true });
+    // Keep visitors on the sealed-envelope screen — no scrolling past it
+    // until they open it and the hero butterfly is front and center.
+    this.lockScroll();
+    const audio = this.audioRef.current;
+    if (audio) {
+      audio.volume = 0.85;
+      audio.load();
+    }
+    const kick = () => {
+      this.startMusic();
+      ['pointerdown', 'touchstart', 'keydown', 'scroll'].forEach(ev =>
+        window.removeEventListener(ev, kick));
+    };
+    ['pointerdown', 'touchstart', 'keydown', 'scroll'].forEach(ev =>
+      window.addEventListener(ev, kick, { passive: true }));
+    setTimeout(() => this.initGuestGallery(), 0);
+  }
+
+  // ---- envelope ----
+  openEnvelope = () => {
+    if (this._opening) return;
+    this._opening = true;
+    const closed = this.closedRef.current, open = this.openRef.current,
+          ov = this.overlayRef.current, glow = this.glowRef.current;
+    if (closed) { closed.style.transform = 'scale(1.05) rotateX(6deg)'; closed.style.opacity = '0'; }
+    if (glow) {
+      glow.style.opacity = '0.9';
+      setTimeout(() => { glow.style.opacity = '0'; }, 900);
+    }
+    if (open) { open.style.opacity = '1'; open.style.transform = 'scale(1) translateY(0)'; }
+    setTimeout(() => {
+      if (ov) ov.style.opacity = '0';
+      this.initReveals();
+      this.tryPlay();
+    }, 1700);
+    setTimeout(() => {
+      this.setState({ opened: true });
+      this.unlockScroll();
+    }, 2800);
+  };
+
+  scrollToInvite = () => {
+    const el = document.querySelector('[data-screen-label="The Couple"]');
+    if (el) {
+      const y = el.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  };
+
+  // ---- scroll lock (gate visitors on the envelope until it opens) ----
+  _blockScroll = (e) => { if (!this.state.opened) e.preventDefault(); };
+  _blockKeys = (e) => {
+    const keys = ['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', 'Home', 'End', ' ', 'Spacebar'];
+    if (!this.state.opened && keys.indexOf(e.key) !== -1) e.preventDefault();
+  };
+  lockScroll() {
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+    document.body.style.touchAction = 'none';
+    window.addEventListener('wheel', this._blockScroll, { passive: false });
+    window.addEventListener('touchmove', this._blockScroll, { passive: false });
+    window.addEventListener('keydown', this._blockKeys, false);
+  }
+  unlockScroll() {
+    document.documentElement.style.overflow = '';
+    document.body.style.overflow = '';
+    document.body.style.touchAction = '';
+    window.removeEventListener('wheel', this._blockScroll);
+    window.removeEventListener('touchmove', this._blockScroll);
+    window.removeEventListener('keydown', this._blockKeys);
+  }
+
+  // ---- music ----
+  startMusic() {
+    this._wantAudio = true;
+    const audio = this.audioRef.current;
+    if (!audio) return;
+    audio.loop = true;
+    const play = audio.play();
+    if (play && play.then) {
+      play.then(() => {
+        if (!this.state.playing) this.setState({ playing: true });
+      }).catch(() => {
+        if (this.state.playing) this.setState({ playing: false });
+      });
+    } else if (!this.state.playing) {
+      this.setState({ playing: true });
+    }
+  }
+  tryPlay() { this.startMusic(); }
+  toggleMusic = () => {
+    const audio = this.audioRef.current;
+    if (!audio) return;
+    if (this.state.playing) {
+      audio.pause();
+      this.setState({ playing: false });
+    } else {
+      this.startMusic();
+    }
+  };
+
+  openGuestPhotoPicker = () => {
+    const input = document.querySelector('.sc-host #guest-photo-input');
+    if (!input) return;
+    input.multiple = true;
+    input.click();
+  };
+
+  initGuestGallery() {
+    if (this._guestGalleryReady) return;
+    const apiUrl = 'api/photos.php';
+    const deviceKey = 'yeabsra-christian-engagement-device-id';
+    const root = document.querySelector('.sc-host');
+    const input = root && root.querySelector('#guest-photo-input');
+    const uploadLabel = root && root.querySelector('#guest-photo-upload-label');
+    const uploadText = root && root.querySelector('#guest-photo-upload-text');
+    const uploadCount = root && root.querySelector('#guest-photo-upload-count');
+    const uploadStatus = root && root.querySelector('#guest-upload-status');
+    const track = root && root.querySelector('#guest-gallery-track');
+    const empty = root && root.querySelector('#guest-gallery-empty');
+    const prevArrow = root && root.querySelector('.guest-gallery-arrow[data-direction="prev"]');
+    const nextArrow = root && root.querySelector('.guest-gallery-arrow[data-direction="next"]');
+    const lightbox = root && root.querySelector('#guest-photo-lightbox');
+    const lightboxImg = root && root.querySelector('#guest-photo-lightbox-img');
+    const lightboxClose = root && root.querySelector('#guest-photo-lightbox-close');
+    if (!input || !uploadLabel || !uploadText || !uploadCount || !uploadStatus || !track || !empty || !prevArrow || !nextArrow || !lightbox || !lightboxImg || !lightboxClose) {
+      setTimeout(() => this.initGuestGallery(), 120);
+      return;
+    }
+    this._guestGalleryReady = true;
+    input.multiple = true;
+
+    let deviceId = '';
+    try { deviceId = localStorage.getItem(deviceKey) || ''; } catch {}
+    if (!deviceId) {
+      deviceId = (crypto.randomUUID && crypto.randomUUID()) || String(Date.now()) + Math.random().toString(16).slice(2);
+      try { localStorage.setItem(deviceKey, deviceId); } catch {}
+    }
+
+    let photos = [];
+    let touchedUntil = 0;
+    let lightboxOpen = false;
+    const getText = () => this.copy();
+    const formatDate = (value) => new Intl.DateTimeFormat(undefined, { month: 'short', day: 'numeric' }).format(new Date(value));
+    const setUploading = (isUploading, message, progress, countText) => {
+      const text = getText();
+      uploadLabel.classList.toggle('is-uploading', isUploading);
+      uploadText.textContent = isUploading ? text.uploadingText : text.sharePhotoText;
+      uploadCount.textContent = countText || '';
+      input.disabled = isUploading;
+      uploadStatus.textContent = message || '';
+      uploadStatus.classList.toggle('is-visible', Boolean(message));
+      uploadLabel.setAttribute('aria-busy', isUploading ? 'true' : 'false');
+      uploadLabel.style.setProperty('--upload-progress', Math.max(0, Math.min(100, progress || 0)) + '%');
+    };
+    const makeDeleteIcon = () => '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17" stroke="#8A6B4C" stroke-width="1.8" stroke-linecap="round"></path></svg>';
+    const fetchPhotos = async () => {
+      const response = await fetch(apiUrl + '?device_id=' + encodeURIComponent(deviceId), { headers: { Accept: 'application/json' } });
+      if (!response.ok) throw new Error('Could not load guest photos.');
+      const data = await response.json();
+      return Array.isArray(data.photos) ? data.photos : [];
+    };
+    const readImageFile = (file) => new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onerror = reject;
+      reader.onload = () => resolve(reader.result);
+      reader.readAsDataURL(file);
+    });
+    const uploadPhotos = (sources, onProgress) => {
+      return new Promise((resolve, reject) => {
+        const request = new XMLHttpRequest();
+        request.open('POST', apiUrl);
+        request.setRequestHeader('Accept', 'application/json');
+        request.setRequestHeader('Content-Type', 'application/json');
+        request.upload.onprogress = (event) => {
+          if (event.lengthComputable) onProgress(Math.round((event.loaded / event.total) * 100));
+        };
+        request.onload = () => {
+          let data = {};
+          try { data = JSON.parse(request.responseText || '{}'); } catch {}
+          if (request.status >= 200 && request.status < 300) resolve(data);
+          else reject(new Error(data.error || 'Upload failed.'));
+        };
+        request.onerror = () => reject(new Error('Upload failed.'));
+        request.send(JSON.stringify({ deviceId, photos: sources.map(src => ({ src })) }));
+      });
+    };
+    const deletePhoto = async (id) => {
+      const response = await fetch(apiUrl, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ deviceId, id })
+      });
+      if (!response.ok) throw new Error('Delete failed.');
+    };
+    const updateActivePhoto = () => {
+      const cards = Array.from(track.querySelectorAll('.guest-photo-card'));
+      if (!cards.length) return;
+      const trackBox = track.getBoundingClientRect();
+      const center = trackBox.left + trackBox.width / 2;
+      let active = cards[0];
+      let distance = Infinity;
+      cards.forEach(card => {
+        const box = card.getBoundingClientRect();
+        const nextDistance = Math.abs(center - (box.left + box.width / 2));
+        if (nextDistance < distance) {
+          distance = nextDistance;
+          active = card;
+        }
+      });
+      cards.forEach(card => card.classList.toggle('is-active', card === active));
+      updateArrows();
+    };
+    const updateArrows = () => {
+      const hasOverflow = photos.length > 1 && track.scrollWidth > track.clientWidth + 2;
+      prevArrow.classList.toggle('is-visible', hasOverflow);
+      nextArrow.classList.toggle('is-visible', hasOverflow);
+      prevArrow.disabled = !hasOverflow || track.scrollLeft <= 2;
+      nextArrow.disabled = !hasOverflow || track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+    };
+    const closeViewer = () => {
+      if (!lightboxOpen) return;
+      lightboxOpen = false;
+      lightbox.classList.remove('is-open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      lightboxImg.removeAttribute('src');
+      document.body.style.overflow = '';
+    };
+    const openViewer = (photo) => {
+      const text = getText();
+      lightboxOpen = true;
+      touchedUntil = Date.now() + 12000;
+      lightboxImg.src = photo.src;
+      lightboxImg.alt = text.photoAltFrom(formatDate(photo.createdAt));
+      lightbox.classList.add('is-open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      lightboxClose.focus();
+    };
+    window.__openGuestPhotoById = (photoId) => {
+      const photo = photos.find(item => item.id === photoId);
+      if (photo) openViewer(photo);
+    };
+    const render = () => {
+      track.innerHTML = '';
+      empty.style.display = photos.length ? 'none' : 'block';
+      track.style.display = photos.length ? 'flex' : 'none';
+      photos.forEach(photo => {
+        const text = getText();
+        const card = document.createElement('article');
+        card.className = 'guest-photo-card';
+        card.innerHTML = '<button class="guest-photo-view" type="button" data-photo-id="' + photo.id + '" onclick="window.__openGuestPhotoById &amp;&amp; window.__openGuestPhotoById(this.dataset.photoId)" aria-label="View photo without cropping"><img alt="' + text.photoAlt + '" src="' + photo.src + '"></button><div class="guest-photo-meta"><span>' + formatDate(photo.createdAt) + '</span></div>';
+        if (photo.canDelete) {
+          const button = document.createElement('button');
+          button.className = 'guest-photo-delete';
+          button.type = 'button';
+          button.setAttribute('aria-label', 'Delete photo');
+          button.innerHTML = makeDeleteIcon();
+          button.addEventListener('click', async () => {
+            button.disabled = true;
+            button.classList.add('is-deleting');
+            card.classList.add('is-deleting');
+            const previousPhotos = photos.slice();
+            photos = photos.filter(item => item.id !== photo.id);
+            setTimeout(render, 180);
+            try {
+              await deletePhoto(photo.id);
+            } catch {
+              photos = previousPhotos;
+              alert(getText().deleteFailedText);
+              render();
+            }
+          });
+          card.querySelector('.guest-photo-meta').appendChild(button);
+        }
+        track.appendChild(card);
+      });
+      updateActivePhoto();
+      updateArrows();
+    };
+
+    ['pointerdown', 'touchstart', 'wheel', 'keydown'].forEach(eventName => {
+      track.addEventListener(eventName, () => { touchedUntil = Date.now() + 6500; }, { passive: true });
+    });
+    track.addEventListener('click', event => {
+      const button = event.target.closest && event.target.closest('.guest-photo-view');
+      if (!button) return;
+      const photo = photos.find(item => item.id === button.dataset.photoId);
+      if (photo) openViewer(photo);
+    });
+    const scrollByCard = (direction) => {
+      const card = track.querySelector('.guest-photo-card');
+      const step = card ? card.getBoundingClientRect().width + 30 : Math.round(track.clientWidth * 0.8);
+      touchedUntil = Date.now() + 6500;
+      track.scrollBy({ left: direction * step, behavior: 'smooth' });
+    };
+    prevArrow.addEventListener('click', () => scrollByCard(-1));
+    nextArrow.addEventListener('click', () => scrollByCard(1));
+    track.addEventListener('scroll', () => requestAnimationFrame(() => { updateActivePhoto(); updateArrows(); }), { passive: true });
+    window.addEventListener('resize', () => requestAnimationFrame(() => { updateActivePhoto(); updateArrows(); }));
+    lightbox.setAttribute('aria-hidden', 'true');
+    lightbox.addEventListener('click', event => {
+      if (event.target === lightbox) closeViewer();
+    });
+    lightboxClose.addEventListener('click', closeViewer);
+    window.addEventListener('keydown', event => {
+      if (event.key === 'Escape') closeViewer();
+    });
+
+    input.addEventListener('change', async () => {
+      const files = Array.from(input.files || []).filter(file => file.type.startsWith('image/'));
+      if (!files.length) return;
+      const text = getText();
+      const selected = files.slice(0, 12);
+      const label = selected.length === 1 ? text.photoSingular : text.photoPlural(selected.length);
+      const limitNote = files.length > selected.length ? text.limitNoteText : '';
+      setUploading(true, text.readPrefix + label + '...' + limitNote, 4, '0/' + selected.length);
+      let uploadedCount = 0;
+      let skippedCount = 0;
+      try {
+        let preparedCount = 0;
+        const sources = await Promise.all(selected.map(file => readImageFile(file).then(src => {
+          preparedCount += 1;
+          setUploading(true, getText().preparePrefix + label + '...' + limitNote, Math.round((preparedCount / selected.length) * 30), preparedCount + '/' + selected.length);
+          return src;
+        })));
+        setUploading(true, getText().uploadPrefix + label + '...', 34, '0/' + selected.length);
+        const result = await uploadPhotos(sources, percent => {
+          const uploadProgress = 34 + Math.round(percent * 0.66);
+          setUploading(true, getText().uploadPrefix + label + '...', uploadProgress, Math.max(1, Math.min(selected.length, Math.ceil((percent / 100) * selected.length))) + '/' + selected.length);
+        });
+        setUploading(true, getText().finishUploadText, 100, selected.length + '/' + selected.length);
+        uploadedCount = result.added || 0;
+        skippedCount = result.skipped || 0;
+      } catch {
+        uploadedCount = 0;
+      }
+      photos = await fetchPhotos().catch(() => photos);
+      render();
+      track.scrollTo({ left: 0, behavior: 'smooth' });
+      if (uploadedCount) {
+        const addedText = getText().addedText(uploadedCount);
+        setUploading(false, skippedCount ? addedText + ' ' + getText().skippedText(skippedCount) : addedText, 0, '');
+      } else {
+        setUploading(false, getText().uploadFailedText, 0, '');
+      }
+      setTimeout(() => setUploading(false, ''), uploadedCount ? 2600 : 4200);
+      input.value = '';
+    });
+
+    setInterval(() => {
+      if (lightboxOpen || !photos.length || Date.now() < touchedUntil || track.scrollWidth <= track.clientWidth) return;
+      const atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+      track.scrollLeft = atEnd ? 0 : track.scrollLeft + 0.38;
+      updateActivePhoto();
+    }, 30);
+
+    fetchPhotos().then(fetched => {
+      photos = fetched;
+      render();
+    }).catch(() => {
+      empty.dataset.unavailable = 'true';
+      empty.textContent = getText().galleryUnavailableText;
+      render();
+    });
+  }
+
+  // ---- scroll reveals ----
+  initReveals() {
+    if (this._revealed) return;
+    this._revealed = true;
+    const els = Array.from(document.querySelectorAll('[data-reveal]'));
+    els.forEach(el => {
+      const d = el.dataset.reveal || '0';
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(28px)';
+      el.style.transition = 'opacity 1.2s ease ' + d + 's, transform 1.2s ease ' + d + 's';
+    });
+    const wEls = Array.from(document.querySelectorAll('[data-write]'));
+    wEls.forEach(el => {
+      const d = el.dataset.write || '0';
+      const grad = 'linear-gradient(to right, black 45%, transparent 55%)';
+      el.style.webkitMaskImage = grad;
+      el.style.maskImage = grad;
+      el.style.webkitMaskSize = '250% 100%';
+      el.style.maskSize = '250% 100%';
+      el.style.webkitMaskPosition = '100% 0';
+      el.style.maskPosition = '100% 0';
+      el.style.transition = '-webkit-mask-position 2.4s ease-out ' + d + 's, mask-position 2.4s ease-out ' + d + 's';
+    });
+    const show = (el) => {
+      if (el.hasAttribute('data-write')) {
+        el.style.webkitMaskPosition = '0% 0';
+        el.style.maskPosition = '0% 0';
+      } else {
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+      }
+    };
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          show(e.target);
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    requestAnimationFrame(() => {
+      els.forEach(el => io.observe(el));
+      wEls.forEach(el => io.observe(el));
+    });
+  }
+
+  // ---- butterfly builder ----
+  butterfly(size, flapDur, flapDelay, key) {
+    const h = React.createElement;
+    const wing = 'rgba(247, 235, 215, 0.55)', edge = '#A38044', bodyC = '#8A6B4C';
+    const wingPaths = (k) => h('g', { key: k },
+      h('path', { d: 'M50 44 C36 16 10 4 5 21 C1 35 20 46 50 44 Z', fill: wing, stroke: edge, strokeWidth: 1.2 }),
+      h('path', { d: 'M50 46 C32 50 11 53 13 68 C15 81 36 74 50 46 Z', fill: wing, stroke: edge, strokeWidth: 1.2 }),
+      h('path', { d: 'M50 44 C40 30 26 22 20 26', fill: 'none', stroke: edge, strokeWidth: 0.7, opacity: 0.6 }),
+      h('path', { d: 'M50 46 C40 54 30 60 25 63', fill: 'none', stroke: edge, strokeWidth: 0.7, opacity: 0.6 })
+    );
+    const anim = 'flap ' + flapDur + 's ease-in-out ' + flapDelay + 's infinite alternate';
+    return h('svg', { key: key, width: size, height: size * 0.9, viewBox: '0 0 100 90', style: { overflow: 'visible', display: 'block' } },
+      h('g', { style: { transformOrigin: '50px 45px', transformBox: 'view-box', animation: anim } }, wingPaths('lw')),
+      h('g', { style: { transformOrigin: '50px 45px', transformBox: 'view-box', animation: anim } },
+        h('g', { transform: 'translate(100,0) scale(-1,1)' }, wingPaths('rw'))
+      ),
+      h('ellipse', { cx: 50, cy: 46, rx: 2.6, ry: 12, fill: bodyC }),
+      h('circle', { cx: 50, cy: 32, r: 3, fill: bodyC }),
+      h('path', { d: 'M49 30 C45 23 41 21 39 17', fill: 'none', stroke: bodyC, strokeWidth: 1 }),
+      h('path', { d: 'M51 30 C55 23 59 21 61 17', fill: 'none', stroke: bodyC, strokeWidth: 1 }),
+      h('circle', { cx: 39, cy: 17, r: 1.2, fill: bodyC }),
+      h('circle', { cx: 61, cy: 17, r: 1.2, fill: bodyC })
+    );
+  }
+
+  heroButterflyEl() {
+    const h = React.createElement;
+    const isMobile = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(max-width: 640px)').matches;
+    const nav = typeof navigator !== 'undefined' ? navigator : {};
+    const ua = nav.userAgent || '';
+    const vendor = nav.vendor || '';
+    const platform = nav.platform || '';
+    const maxTouchPoints = nav.maxTouchPoints || 0;
+    const isIOS = /iPad|iPhone|iPod/.test(ua) || (platform === 'MacIntel' && maxTouchPoints > 1);
+    const isWebKit = /AppleWebKit/.test(ua) && !/Chrome|CriOS|Edg|OPR|Firefox|FxiOS/.test(ua);
+    const videoProbe = typeof document !== 'undefined' ? document.createElement('video') : null;
+    const canUseWebm = !!videoProbe
+      && !isIOS
+      && !(isWebKit && /Apple/.test(vendor))
+      && !!videoProbe.canPlayType('video/webm; codecs="vp9"');
+    const animatedSrc = isMobile ? 'assets/doves-mobile-hq.webp' : 'assets/doves-fast-hq.webp';
+    const videoSrc = isMobile ? 'assets/doves-mobile.webm' : 'assets/doves-fast.webm';
+    const posterSrc = isIOS ? 'assets/doves-ios-sprite-poster.jpg' : 'assets/doves-poster.webp';
+    const doveFilter = isIOS ? 'none' : 'saturate(0.42) sepia(0.08) brightness(1.04)';
+    const markDovesReady = () => {
+      if (!this.state.dovesReady) this.setState({ dovesReady: true });
+    };
+    const imageStyle = {
+      display: 'block',
+      width: 'min(84vw, 440px)',
+      aspectRatio: '1 / 1',
+      objectFit: 'contain',
+      filter: doveFilter,
+      pointerEvents: 'none'
+    };
+    return h('div', {
+      style: { position: 'relative', width: 'min(84vw, 440px)' }
+    },
+      h('img', {
+        src: posterSrc,
+        alt: 'Two doves',
+        decoding: 'async',
+        fetchPriority: 'high',
+        style: {
+          ...imageStyle,
+          opacity: isIOS || !this.state.dovesReady ? 1 : 0,
+          visibility: isIOS || !this.state.dovesReady ? 'visible' : 'hidden',
+          transition: 'opacity 0.28s ease, visibility 0s linear ' + (this.state.dovesReady && !isIOS ? '0.28s' : '0s')
+        }
+      }),
+      isIOS ? h('div', {
+        'aria-hidden': 'true',
+        style: {
+          ...imageStyle,
+          position: 'absolute',
+          inset: 0,
+          backgroundImage: 'url(assets/doves-ios-sprite.jpg)',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: '6000% 100%',
+          backgroundPosition: '0 0',
+          animation: 'doveSprite 8s steps(59) infinite'
+        }
+      }) : canUseWebm ? h('video', {
+        className: 'hero-dove-video',
+        src: videoSrc,
+        autoPlay: true,
+        muted: true,
+        loop: true,
+        playsInline: true,
+        preload: 'auto',
+        poster: posterSrc,
+        controls: false,
+        disablePictureInPicture: true,
+        controlsList: 'nodownload nofullscreen noremoteplayback',
+        'aria-hidden': 'true',
+        onLoadedData: markDovesReady,
+        onCanPlay: markDovesReady,
+        style: {
+          ...imageStyle,
+          position: 'absolute',
+          inset: 0,
+          opacity: this.state.dovesReady ? 1 : 0,
+          transition: 'opacity 0.45s ease'
+        }
+      }) : h('img', {
+        src: animatedSrc,
+        alt: '',
+        fetchPriority: 'low',
+        loading: 'eager',
+        decoding: 'async',
+        onLoad: markDovesReady,
+        style: {
+          ...imageStyle,
+          position: 'absolute',
+          inset: 0,
+          opacity: this.state.dovesReady ? 1 : 0,
+          transition: 'opacity 0.45s ease'
+        }
+      })
+    );
+  }
+
+  buildGobos() {
+    if (this._gobo) return;
+    const h = React.createElement;
+    let k = 0;
+    const leaf = (x, y, rx, ry, rot, o) => h('ellipse', {
+      key: 'g' + (k++), cx: x, cy: y, rx: rx, ry: ry,
+      transform: 'rotate(' + rot + ' ' + x + ' ' + y + ')', fill: '#6B5432', opacity: o
+    });
+    const leaves = [
+      leaf(60, 80, 95, 32, -30, 0.5), leaf(175, 145, 115, 38, -15, 0.45),
+      leaf(40, 235, 95, 30, 10, 0.4), leaf(205, 40, 82, 26, -42, 0.5),
+      leaf(120, 305, 72, 26, 24, 0.35), leaf(300, 90, 70, 22, -8, 0.3),
+      leaf(760, 620, 100, 34, 20, 0.45), leaf(705, 725, 120, 40, 36, 0.4),
+      leaf(790, 515, 82, 28, -12, 0.4), leaf(690, 560, 65, 22, 8, 0.3),
+      leaf(85, 1050, 112, 36, -25, 0.4), leaf(185, 1135, 92, 30, 14, 0.35),
+      leaf(30, 1150, 75, 26, -5, 0.3)
+    ];
+    this._gobo = h('div', {
+      style: {
+        position: 'fixed', inset: '-50px', pointerEvents: 'none', zIndex: 2,
+        opacity: 0.13, mixBlendMode: 'multiply',
+        animation: 'goboSway 16s ease-in-out infinite alternate'
+      }
+    }, h('svg', {
+      viewBox: '0 0 800 1200', width: '100%', height: '100%',
+      preserveAspectRatio: 'xMidYMid slice', style: { filter: 'blur(20px)', display: 'block' }
+    }, leaves));
+  }
+
+  buildLayers(count, speed, petalsOn) {
+    const key = count + '|' + speed + '|' + petalsOn;
+    if (this._layerKey === key) return;
+    this._layerKey = key;
+    const h = React.createElement;
+    // seeded pseudo-random for stable layouts
+    let s = 42;
+    const rnd = () => { s = (s * 16807) % 2147483647; return (s - 1) / 2147483646; };
+
+    const bfs = [];
+    for (let i = 0; i < count; i++) {
+      const size = 24 + rnd() * 26;
+      const left = i === 0 ? 86 : 4 + rnd() * 88;
+      const top = i === 0 ? 58 : 6 + rnd() * 84;
+      const driftName = rnd() > 0.5 ? 'driftA' : 'driftB';
+      const driftDur = (14 + rnd() * 14) / speed;
+      const delay = -rnd() * 20;
+      bfs.push(h('div', {
+        key: 'bf' + i,
+        style: {
+          position: 'absolute', left: left + '%', top: top + '%',
+          animation: driftName + ' ' + driftDur + 's ease-in-out ' + delay + 's infinite',
+          opacity: 0.85
+        }
+      }, this.butterfly(size, (0.7 + rnd() * 0.5) / speed, -rnd() * 2, 'b')));
+    }
+    this._butterflyLayer = h('div', {
+      style: { position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 5, overflow: 'hidden' }
+    }, bfs);
+
+    const petals = [];
+    if (petalsOn) {
+      for (let i = 0; i < 4; i++) {
+        const left = rnd() * 100;
+        const dur = 11 + rnd() * 12;
+        const delay = -rnd() * 22;
+        const w = 24 + rnd() * 26;
+        petals.push(h('img', {
+          key: 'p' + i,
+          src: 'assets/flower-petal.png',
+          alt: '',
+          style: {
+            position: 'absolute', left: left + '%', top: 0,
+            width: w + 'px', height: 'auto',
+            opacity: 0.55 + rnd() * 0.35,
+            filter: 'drop-shadow(0 2px 6px rgba(160, 132, 100, 0.25))',
+            animation: 'petalFall ' + dur + 's linear ' + delay + 's infinite'
+          }
+        }));
+      }
+    }
+    this._petalLayer = h('div', {
+      style: { position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 4, overflow: 'hidden' }
+    }, petals);
+  }
+
+  renderVals() {
+    const count = Math.max(0, Math.min(16, this.props.butterflyCount ?? 4));
+    const speed = this.props.butterflySpeed ?? 1;
+    const petalsOn = this.props.fallingPetals ?? true;
+    const text = this.copy();
+    this.buildLayers(count, speed, petalsOn);
+    this.buildGobos();
+    return {
+      ...text,
+      showOverlay: !this.state.opened,
+      openEnvelope: this.openEnvelope,
+      openGuestPhotoPicker: this.openGuestPhotoPicker,
+      overlayRef: this.overlayRef,
+      closedRef: this.closedRef,
+      openRef: this.openRef,
+      glowRef: this.glowRef,
+      audioRef: this.audioRef,
+      scrollToInvite: this.scrollToInvite,
+      goboLayer: this._gobo,
+      hasMusic: this.state.hasMusic,
+      playing: this.state.playing,
+      notPlaying: !this.state.playing,
+      toggleMusic: this.toggleMusic,
+      butterflyLayer: this._butterflyLayer,
+      petalLayer: this._petalLayer,
+      heroButterfly: this.heroButterflyEl(),
+      footerButterfly: this.butterfly(58, 1, 0, 'foot')
+    };
+  }
+}
+</script>
+<script>
+(() => {
+  const openViewer = (source, altText) => {
+    const lightbox = document.getElementById('guest-photo-lightbox');
+    const image = document.getElementById('guest-photo-lightbox-img');
+    const close = document.getElementById('guest-photo-lightbox-close');
+    if (!lightbox || !image || !source) return;
+    image.src = source;
+    image.alt = altText || 'Guest engagement ceremony memory';
+    lightbox.classList.add('is-open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    if (close) close.focus();
+  };
+  const closeViewer = () => {
+    const lightbox = document.getElementById('guest-photo-lightbox');
+    const image = document.getElementById('guest-photo-lightbox-img');
+    if (!lightbox || !lightbox.classList.contains('is-open')) return;
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    if (image) image.removeAttribute('src');
+    document.body.style.overflow = '';
+  };
+  document.addEventListener('click', event => {
+    const viewButton = event.target.closest && event.target.closest('.guest-photo-view');
+    if (viewButton) {
+      const image = viewButton.querySelector('img');
+      openViewer(image && image.src, image && image.alt);
+      return;
+    }
+    if (event.target && event.target.id === 'guest-photo-lightbox') closeViewer();
+    if (event.target.closest && event.target.closest('#guest-photo-lightbox-close')) closeViewer();
+  });
+  window.addEventListener('keydown', event => {
+    if (event.key === 'Escape') closeViewer();
+  });
+})();
+</script>
+</body>
+</html>
