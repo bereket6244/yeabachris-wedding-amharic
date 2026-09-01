@@ -483,14 +483,14 @@
       </div>
     </div>
 
-    <a class="invitation-cta" data-reveal="0.35" href="https://maps.app.goo.gl/yyGedyGNWSn4TGHV9?g_st=it" target="_blank" rel="noopener" style="margin-top: 34px; display: inline-flex; align-items: center; justify-content: center; gap: 14px; border: 1px solid #A38044; border-radius: 999px; background: rgba(250, 246, 238, 0.38); padding: 15px clamp(22px, 6vw, 38px); font-size: clamp(13px, 3.8vw, 15px); font-weight: 500; letter-spacing: 0.35em; text-indent: 0.35em; color: #8A6B4C; text-decoration: none; white-space: nowrap; box-shadow: 0 8px 22px rgba(90, 70, 50, 0.08);">{{ openMapText }} <svg width="22" height="10" viewBox="0 0 22 10" fill="none"><path d="M0 5h20M16 1l4 4-4 4" stroke="#8A6B4C" stroke-width="1.1"></path></svg></a>
+    <a class="invitation-cta" data-reveal="0.35" href="https://maps.app.goo.gl/yyGedyGNWSn4TGHV9?g_st=it" target="_blank" rel="noopener" style="margin-top: 34px; display: inline-flex; align-items: center; justify-content: center; gap: 14px; border: 1px solid #A38044; border-radius: 999px; background: rgba(250, 246, 238, 0.38); padding: 15px clamp(22px, 6vw, 38px); font-size: clamp(13px, 3.8vw, 15px); font-weight: 500; letter-spacing: 0.22em; text-indent: 0.22em; line-height: 1.5; color: #8A6B4C; text-decoration: none; white-space: normal; max-width: min(86vw, 390px); text-align: center; box-shadow: 0 8px 22px rgba(90, 70, 50, 0.08);">{{ openMapText }} <svg width="22" height="10" viewBox="0 0 22 10" fill="none" style="flex: 0 0 auto;"><path d="M0 5h20M16 1l4 4-4 4" stroke="#8A6B4C" stroke-width="1.1"></path></svg></a>
   </section>
 
   <!-- ═══ Footer ═══ -->
   <section data-screen-label="Footer" style="padding: 36px 24px 64px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0;">
     {{ footerButterfly }}
     <div data-reveal="0.1" style="margin-top: 36px; font-family: 'Pinyon Script', cursive; font-size: {{ withLoveFontSize }}; color: #8A6B4C; line-height: 1.2;">{{ withLoveText }}</div>
-    <div data-reveal="0.2" style="margin-top: 26px; font-size: clamp(24px, 5vw, 30px); letter-spacing: 0.35em; text-indent: 0.35em; color: #3A2E1E;">{{ footerNames }}</div>
+    <div data-reveal="0.2" style="margin-top: 26px; font-size: {{ footerNamesFontSize }}; letter-spacing: {{ footerNamesLetterSpacing }}; text-indent: {{ footerNamesLetterSpacing }}; color: #3A2E1E; white-space: nowrap;">{{ footerNames }}</div>
     <sc-if value="{{ showFooterNote }}" hint-placeholder-val="{{ false }}">
       <div data-reveal="0.3" style="margin-top: 18px; max-width: 560px; font-size: clamp(17px, 4.2vw, 20px); line-height: 1.55; font-style: italic; letter-spacing: {{ footerNoteLetterSpacing }}; text-indent: {{ footerNoteLetterSpacing }}; color: #8A6B4C;">{{ footerNote }}</div>
     </sc-if>
@@ -550,14 +550,14 @@ class Component extends DCLogic {
       yearText: '2019 ዓ.ም',
       yearTextFontSize: 'clamp(14px, 4vw, 24px)',
       timeText: 'ከምሽቱ 11፡30',
-      addCalendarText: 'ቀን መቁጠራ ላይ ያስፍሩ',
+      addCalendarText: 'ቀን መቁጠሪያ ላይ ያስፍሩ',
       showVenueLabel: false,
       venueLabel: 'ቦታ:',
       venueText: 'አድራሻ፡ ቦሌ ቡልቡላ ወደ ማርያም ቤትክርስትያን በሚወስደው መንገድ ወንድማማቾች ስጋ ቤት ተሻግሮ ሻሎም ፀጉር ቤት አጠገብ ባለው መግቢያ',
       venueTextMarginTop: '0',
       locationText: 'አቅጣጫ',
       locationTextFontSize: '16px',
-      openMapText: 'ካርታ ክፈት',
+      openMapText: 'የቤቱን አቅጣጫ ለማግኘት ይጫኑ',
       guestTitle: 'እንግዶች',
       guestTitleFontSize: '28px',
       memoriesTitle: 'ትዝታዎች',
@@ -585,6 +585,8 @@ class Component extends DCLogic {
       withLoveText: 'አክባሪ ጠሪዎ',
       withLoveFontSize: 'clamp(18px, 4vw, 24px)',
       footerNames: 'ወ/ሮ መሰረት አያልቅበት',
+      footerNamesFontSize: 'clamp(13px, 3.8vw, 24px)',
+      footerNamesLetterSpacing: '0.05em',
       showFooterNote: false,
       footerNote: '',
       footerNoteLetterSpacing: '0.08em'
@@ -655,6 +657,8 @@ class Component extends DCLogic {
       withLoveText: 'with love,',
       withLoveFontSize: '42px',
       footerNames: 'ወ/ሮ መሰረት አያልቅበት',
+      footerNamesFontSize: 'clamp(13px, 3.8vw, 24px)',
+      footerNamesLetterSpacing: '0.05em',
       showFooterNote: true,
       footerNote: 'Your presence means the world to us.',
       footerNoteLetterSpacing: '0'
