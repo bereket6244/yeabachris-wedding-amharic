@@ -77,6 +77,61 @@
     @keyframes uploadSpin {
       to { transform: rotate(360deg); }
     }
+    @keyframes paintStroke {
+      from {
+        clip-path: inset(var(--top) 100% var(--bottom) 0 round 30px);
+        filter: blur(2.2px) saturate(0.84);
+        opacity: 0.88;
+      }
+      68% {
+        clip-path: inset(var(--top) 0 var(--bottom) 0 round 30px);
+        filter: blur(0.6px) saturate(0.96);
+        opacity: 1;
+      }
+      to {
+        clip-path: inset(var(--top) 0 var(--bottom) 0 round 30px);
+        filter: blur(0) saturate(1);
+        opacity: 1;
+      }
+    }
+    @keyframes paintFinal {
+      from { opacity: 0; transform: scale(1.015); filter: blur(1px); }
+      to { opacity: 1; transform: scale(1); filter: blur(0); }
+    }
+    .paint-reveal {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 999px 999px 6px 6px;
+      background: #F5EBD8;
+      isolation: isolate;
+    }
+    .paint-reveal img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 50%;
+      display: block;
+      opacity: 0;
+      animation: paintFinal 0.42s ease-out 1.34s forwards;
+    }
+    .paint-stroke {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background-image: url('assets/couple-watercolor.png');
+      background-size: 100% 100%;
+      background-position: center;
+      border-radius: 42% 55% 47% 38% / 46% 36% 58% 42%;
+      opacity: 0;
+      transform-origin: left center;
+      animation: paintStroke 0.58s cubic-bezier(0.22, 1, 0.36, 1) var(--delay) forwards;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .paint-reveal img { opacity: 1; animation: none; }
+      .paint-stroke { display: none; }
+    }
     .invitation-cta {
       min-width: min(86vw, 294px);
       min-height: 48px;
@@ -424,7 +479,16 @@
   <section data-screen-label="The Couple" style="padding: 28px 24px 28px; display: flex; flex-direction: column; align-items: center; text-align: center;">
     <div data-reveal="0.15" style="position: relative;">
       <div style="width: min(76vw, 340px); aspect-ratio: 3 / 4.25; border: 1px solid #A08464; border-radius: 999px 999px 10px 10px; padding: 11px; box-sizing: border-box;">
-        <img src="assets/couple.jpg" alt="Yeabsra and Christian" style="width: 100%; height: 100%; object-fit: cover; object-position: 55% 50%; border-radius: 999px 999px 6px 6px; display: block;">
+        <div class="paint-reveal" aria-label="Yeabsra and Christian">
+          <img src="assets/couple-watercolor.png" alt="Yeabsra and Christian">
+          <span class="paint-stroke" aria-hidden="true" style="--top: 0%; --bottom: 82%; --delay: 0.08s;"></span>
+          <span class="paint-stroke" aria-hidden="true" style="--top: 12%; --bottom: 69%; --delay: 0.2s;"></span>
+          <span class="paint-stroke" aria-hidden="true" style="--top: 27%; --bottom: 53%; --delay: 0.32s;"></span>
+          <span class="paint-stroke" aria-hidden="true" style="--top: 43%; --bottom: 37%; --delay: 0.44s;"></span>
+          <span class="paint-stroke" aria-hidden="true" style="--top: 59%; --bottom: 21%; --delay: 0.56s;"></span>
+          <span class="paint-stroke" aria-hidden="true" style="--top: 75%; --bottom: 6%; --delay: 0.68s;"></span>
+          <span class="paint-stroke" aria-hidden="true" style="--top: 88%; --bottom: 0%; --delay: 0.8s;"></span>
+        </div>
       </div>
       <div style="position: absolute; left: -30px; top: 46%; width: 11px; height: 11px; background: #8A6B4C; animation: sparkle 2.6s ease-in-out infinite;"></div>
       <div style="position: absolute; right: -30px; top: 46%; width: 11px; height: 11px; background: #8A6B4C; animation: sparkle 2.6s ease-in-out 1.3s infinite;"></div>
