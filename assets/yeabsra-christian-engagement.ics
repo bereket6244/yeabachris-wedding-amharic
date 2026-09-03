@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Mena Inc//Yeabsra Christian Engagement//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:yeabsra-christian-engagement-20260920@menaincet.com
+DTSTAMP:20260827T000000Z
+DTSTART:20260920T143000Z
+DTEND:20260920T173000Z
+SUMMARY:Yeabsra & Christian Engagement Ceremony
+LOCATION:Our Residence
+DESCRIPTION:Join us to celebrate Yeabsra and Christian's engagement ceremony. Please use the map on the invitation website for directions.
+URL:https://menaincet.com/yeabsrachristian/
+END:VEVENT
+END:VCALENDAR
